@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #173b2f;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(187, 247, 208, 0.9), transparent 25%),
+    radial-gradient(circle at 15% 85%, rgba(134, 239, 172, 0.8), transparent 25%),
+    linear-gradient(135deg, #dcfce7, #bbf7d0, #ecfccb);
+  position: relative;
+  overflow: hidden;
+}
+
+.app::before {
+  content: "♻️ 🌱 🍃 ♻️ 🌿";
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-size: 54px;
+  opacity: 0.18;
+  transform: rotate(-12deg);
+}
+
+.app::after {
+  content: "🌿 ♻️ 🍃 🌱 ♻️";
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-size: 54px;
+  opacity: 0.18;
+  transform: rotate(12deg);
+}
+
+.chatbot-card {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 30px;
+  box-shadow: 0 25px 60px rgba(22, 101, 52, 0.22);
+  padding: 26px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid rgba(187, 247, 208, 0.9);
+}
+
+.header {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  border-bottom: 1px solid #d9f99d;
+  padding-bottom: 18px;
+}
+
+.mascot {
+  width: 95px;
+  height: 95px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+  border: 4px solid #bbf7d0;
+  background: #dcfce7;
+  box-shadow: 0 10px 25px rgba(22, 101, 52, 0.18);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 42px;
+  color: #15803d;
+  letter-spacing: -1px;
+}
+
+.header p {
+  margin: 6px 0 0;
+  color: #4b6356;
+  font-size: 17px;
+}
+
+.intro {
+  margin-top: 22px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.intro h2 {
+  margin: 0 0 8px;
+  color: #166534;
+}
+
+.intro p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.quick-buttons button {
+  border: none;
+  background: #ecfdf5;
+  color: #166534;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  border: 1px solid #bbf7d0;
+}
+
+.quick-buttons button:hover {
+  background: #bbf7d0;
+  transform: translateY(-1px);
+}
+
+.chat-window {
+  height: 370px;
+  overflow-y: auto;
+  background:
+    linear-gradient(rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.92)),
+    repeating-linear-gradient(
+      45deg,
+      #dcfce7,
+      #dcfce7 10px,
+      #f0fdf4 10px,
+      #f0fdf4 20px
+    );
+  border-radius: 22px;
+  padding: 16px;
+  border: 1px solid #d1fae5;
+}
+
+.message {
+  max-width: 80%;
+  padding: 14px 16px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  line-height: 1.45;
+  white-space: normal;
+  font-size: 15px;
+}
+
+.message.bot {
+  background: #ffffff;
+  border: 1px solid #bbf7d0;
+  color: #173b2f;
+  box-shadow: 0 5px 15px rgba(22, 101, 52, 0.08);
+}
+
+.message.user {
+  background: #22c55e;
+  color: white;
+  margin-left: auto;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid #86efac;
+  font-size: 16px;
+  outline: none;
+}
+
+.input-area input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.input-area button {
+  border: none;
+  background: #15803d;
+  color: white;
+  padding: 0 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.input-area button:hover {
+  background: #166534;
+}
+
+@media (max-width: 600px) {
+  .chatbot-card {
+    padding: 16px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .mascot {
+    width: 75px;
+    height: 75px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .chat-window {
+    height: 420px;
+  }
+
+  .message {
+    max-width: 92%;
+  }
+
+  .input-area {
+    flex-direction: column;
+  }
+
+  .input-area button {
+    padding: 14px;
+  }
+}
